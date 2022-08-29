@@ -61,6 +61,7 @@ router.get("/", verifyTokenAndAdmin, async (req, res) => {
   }
 });
 
+// GET STATUS INFORMATION
 router.get("/stats", verifyTokenAndAdmin, async (req, res) => {
   const date = new Date();
   const lastYear = new Date(date.getFullYear() - 1);
@@ -76,10 +77,6 @@ router.get("/stats", verifyTokenAndAdmin, async (req, res) => {
   } catch (error) {
     res.status(500).json(error);
   }
-});
-
-router.get("/", (req, res) => {
-  res.end("Ruta conectada");
 });
 
 module.exports = router;
